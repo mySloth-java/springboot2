@@ -16,7 +16,7 @@ public class myCon {
         return car;
     }
 
-    @RequestMapping("/index")
+    @RequestMapping("/index2")
     public String bootTest(){
         return "springBoot hello 希望你不要像ssm一样不识好歹，跑着跑着bug就来了";
     }
