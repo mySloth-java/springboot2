@@ -5,10 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.thymeleaf.util.StringUtils;
-
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -18,7 +14,7 @@ public class mainCon {
      * 负责页面跳转
      * @return
      */
-    @GetMapping(value = "/")
+    @GetMapping(value = {"/","/login"})
     public String indexCon(){
         //调用底层数据库判断用户是否成功登录
 
@@ -53,13 +49,17 @@ public class mainCon {
     @GetMapping("/index")
     public String toLoginSuccessCon(HttpSession session,Model model){
         //判断是否登录
-        Object logUser = session.getAttribute("logUser");
-        if(logUser!=null){
-            return "mainIndex";
-        }else {
-            model.addAttribute("error","请先登录再访问");
-            return "LoginIndex";
-        }
+        //交给拦截器控制
+//        Object logUser = session.getAttribute("logUser");
+//        if(logUser!=null){
+//            return "mainIndex";
+//        }else {
+//            model.addAttribute("error","请先登录再访问");
+//            return "LoginIndex";
+//        }
+
+        //写法2：拦截器控制
+        return "mainIndex";
 
     }
 
