@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cg.boot.mapper.UserMapper">
+<!--    List<User> loginUser(@Param("logName") String logName,@Param("logPassword") String logPassword);-->
+    <select id="loginUser" resultType="com.cg.boot.pojo.User">
+        select * from login_user where log_name=#{logName} and log_password=#{logPassword}
+    </select>
+</mapper>

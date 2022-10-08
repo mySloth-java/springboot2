@@ -1,14 +1,19 @@
 package com.cg.boot.controller;
 
+import com.cg.boot.mapper.UserMapper;
 import com.cg.boot.pojo.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class mainCon {
+    @Autowired
+    private UserMapper userMapper;
 
     /**功能1
      * 负责页面跳转
@@ -30,12 +35,12 @@ public class mainCon {
      */
     @PostMapping(value = "/login")
     public String loginSuccessCon(User user, Model model,HttpSession session){
-        if(user.getLogName()!=null&&"123".equals(user.getLogPassword())){
+        List<User> users = userMapper.loginUser(user.getLogName(), user.getLogPassword());
+        if(!users.isEmpty()){
             //保存登录的页面
             session.setAttribute("logUser",user);
             return "redirect:/index";
         }
-
         //设置共享域，给予登录错误提示，错误信息的提取在html页面完成
         model.addAttribute("error","账号或密码错误");
         return "LoginIndex";

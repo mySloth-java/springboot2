@@ -1,0 +1,13 @@
+spring:
+#  添加数据源
+  datasource:
+    url: jdbc:mysql://localhost:3306/boot_crud?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: 'mysql8'
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 配置mybatis规则
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true # 开启驼峰
