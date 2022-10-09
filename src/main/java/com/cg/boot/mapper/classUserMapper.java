@@ -15,8 +15,9 @@ public interface classUserMapper {
     classUser getIdUser(@Param("classId") Integer classId);
 
     //修改学生信息
-    int classUpdate(@Param("classId") Integer classId);
-
+//    错误代码
+//    int classUpdate(@Param("classId") Integer classId);
+    int classUpdate(classUser classUser);
     //添加学生信息
     int classInsert(classUser classUser);
 

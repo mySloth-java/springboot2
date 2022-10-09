@@ -52,7 +52,7 @@ public class userCon {
     //修改学生表
     @PostMapping("/classUpdate")
     public String classUpdateCon(classUser classUser){
-        classUserMapper.classUpdate(classUser.getClassId());
+        classUserMapper.classUpdate(classUser);
         return "redirect:/classSelect";
     }
 
