@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息CRUD系统</title>
+</head>
+<body>
+<div id="app">
+    <table>
+        <tr>
+            <th colspan="6">学生信息表</th>
+        </tr>
+        <tr>
+            <th>学生Id</th>
+            <th>学生姓名</th>
+            <th>学生性别</th>
+            <th>学生年龄</th>
+            <th>学生成绩</th>
+            <th>操作选项(<a href="classToInsert">添加学生</a>)</th>
+        </tr>
+        <tr th:each="classUser : ${allUser}">
+            <td th:text="${classUser.classId}"></td>
+            <td th:text="${classUser.className}"></td>
+            <td th:text="${classUser.classSex}"></td>
+            <td th:text="${classUser.classAge}"></td>
+            <td th:text="${classUser.classMark}"></td>
+            <td>
+                <a th:href="@{'/classToUpdate/'+${classUser.classId}}">修改</a>
+                <a @click="classDelete()" th:href="@{'/classDelete/'+${classUser.classId}}">删除</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<!--绑定点击事件删除-->
+<script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
+
+<script type="text/javascript">
+    var vue=new Vue({
+        el:"#app",
+        methods:{
+            classDelete(){
+                var form = document.getElementsByTagName("form")[0];
+                form.action = event.target.href;
+                form.submit();
+                event.preventDefault();
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

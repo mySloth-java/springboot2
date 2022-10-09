@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息CRUD系统</title>
+</head>
+<body>
+
+<form th:action="@{/classUpdate}" method="post">
+    <input type="hidden" name="classId" th:value="${idUser.classId}">
+    <table>
+        <tr>
+            <th colspan="2">修改学生信息</th>
+        </tr>
+        <tr>
+            <td>学生姓名</td>
+            <td><input type="text" name="className" th:value="${idUser.className}"></td>
+        </tr>
+        <tr>
+            <td>学生性别</td>
+            <td><input type="text" name="classSex" th:value="${idUser.classSex}"></td>
+<!--            <td>-->
+<!--                <input type="radio" name="classSex" value="男" th:field="${idUser.classAge}">男-->
+<!--                <input type="radio" name="classSex" value="女" th:field="${idUser.classAge}">女-->
+<!--                <input type="radio" name="classSex" value="HOMO" th:field="${idUser.classAge}">HOMO-->
+<!--            </td>-->
+        </tr>
+        <tr>
+            <td>学生年龄</td>
+            <td><input type="text" name="classAge" th:value="${idUser.classAge}"></td>
+        </tr>
+        <tr>
+            <td>学生成绩</td>
+            <td><input type="text" name="classMark" th:value="${idUser.classMark}"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="修改">
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>

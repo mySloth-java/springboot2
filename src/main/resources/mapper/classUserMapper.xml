@@ -2,6 +2,31 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cg.boot.pojo.classUser">
-    <select id=""></select>
+<mapper namespace="com.cg.boot.mapper.classUserMapper">
+<!--    List<classUser> getAllUser();-->
+    <select id="getAllUser" resultType="com.cg.boot.pojo.classUser">
+        select * from class_table
+    </select>
+
+<!--    List<classUser> getIdUser(@Param("classId") Integer classId);-->
+    <select id="getIdUser" resultType="com.cg.boot.pojo.classUser">
+        select * from class_table where class_id=#{classId}
+    </select>
+
+<!--    void classUpdate(@Param("classId") Integer classId);-->
+    <update id="classUpdate">
+        update class_table set class_name=#{className},class_sex=#{classSex},class_age=#{classAge},class_mark=#{classMark}
+        where class_id=#{classId}
+    </update>
+
+<!--    int classInsert(classUser classUser);-->
+    <insert id="classInsert">
+        insert into class_table (class_id,class_name,class_sex,class_age,class_mark)
+        values (#{classId},#{className},#{classSex},#{classAge},#{classMark})
+    </insert>
+
+<!--    int classDelete(@Param("classId") Integer classId);-->
+    <delete id="classDelete">
+        delete from class_table where class_id=#{classId}
+    </delete>
 </mapper>
