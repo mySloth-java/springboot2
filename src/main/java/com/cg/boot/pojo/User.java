@@ -2,7 +2,7 @@ package com.cg.boot.pojo;
 
 public class User {
     /**
-     * 用户登录实体类
+     * 用户登录实体类，登录用户表
      */
     private String logName;
     private String logPassword;
