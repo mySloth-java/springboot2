@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/yearInsert}" method="post">
+  <table>
+    <tr>
+      <th colspan="2">添加年级信息</th>
+    </tr>
+    <tr>
+      <td>年级Id</td>
+      <td><input type="text" name="yearId"></td>
+    </tr>
+    <tr>
+      <td>学生姓名</td>
+      <td><input type="text" name="yearName"></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" value="点击添加年级信息">
+      </td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cg.boot.mapper.yearEmptyMapper">
+<!--    List<yearEmpty> getAllYear();-->
+    <select id="getAllYear" resultType="com.cg.boot.pojo.yearEmpty">
+        select * from year_table
+    </select>
+
+<!--    yearEmpty getIdYear(@Param("yearId") Integer yearId);-->
+    <select id="getIdYear" resultType="com.cg.boot.pojo.yearEmpty">
+        select * from year_table where year_id=#{yearId}
+    </select>
+
+<!--    int yearInsert(yearEmpty yearEmpty);-->
+    <insert id="yearInsert">
+        insert into year_table (year_id,year_name) values (#{yearId},#{yearName})
+    </insert>
+
+<!--    int yearUpdate(yearEmpty yearEmpty);-->
+    <update id="yearUpdate">
+        update year_table set year_name=#{yearName} where year_id=#{yearId}
+    </update>
+
+
+
+</mapper>

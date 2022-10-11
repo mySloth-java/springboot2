@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>年级信息表</title>
+</head>
+<body>
+
+<form th:action="@{/yearUpdate}" method="post">
+    <input type="hidden" name="yearId" th:value="${idYear.yearId}">
+    <table>
+        <tr>
+            <th colspan="2">修改年级信息</th>
+        </tr>
+        <tr>
+            <td>年级信息</td>
+            <td><input type="text" name="yearName" th:value="${idYear.yearName}"></td>
+        </tr>
+            <td>
+                <input type="submit" value="修改">
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>
