@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cg.boot.mapper.xiEmptyMapper">
+<!--    List<xiEmpty> getAllXi();-->
+    <select id="getAllXi" resultType="com.cg.boot.pojo.xiEmpty">
+        select * from xi_table
+    </select>
+
+<!--    xiEmpty getIdXi(@Param("xiId") Integer xiId);-->
+    <select id="getIdXi" resultType="com.cg.boot.pojo.xiEmpty">
+        select * from xi_table where xi_id=#{xiId}
+    </select>
+
+<!--    int xiInsert(xiEmpty xiEmpty);-->
+    <insert id="xiInsert">
+        insert into xi_table (xi_id,xi_name) values (#{xiId},#{xiName})
+    </insert>
+
+<!--    int xiUpdate(xiEmpty xiEmpty);-->
+    <update id="xiUpdate">
+        update xi_table set xi_name=#{xiName} where xi_id=#{xiId}
+    </update>
+
+
+
+</mapper>

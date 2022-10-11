@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>年级信息表</title>
+</head>
+<body>
+<div id="app">
+    <table>
+        <tr>
+            <th colspan="3">系别信息表</th>
+        </tr>
+        <tr>
+            <th>系别Id</th>
+            <th>系别名称</th>
+            <th>操作选项(<a href="xiToInsert">添加系别信息</a>)</th>
+        </tr>
+        <tr th:each="xi : ${allXi}">
+            <td th:text="${xi.xiId}"></td>
+            <td th:text="${xi.xiName}"></td>
+            <td>
+                <a th:href="@{'/xiToUpdate/'+${xi.xiId}}">修改</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

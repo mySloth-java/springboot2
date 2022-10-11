@@ -17,11 +17,13 @@
             <th>班级名称</th>
             <th>操作选项(<a href="banToInsert">添加班级信息</a>)</th>
         </tr>
-        <tr th:each="year : ${allYear}">
-            <td th:text="${year.yearId}"></td>
-            <td th:text="${year.yearName}"></td>
+        <tr th:each="ban : ${allBan}">
+            <td th:text="${ban.banId}"></td>
+            <td th:text="${ban.yearId}"></td>
+            <td th:text="${ban.zhuanId}"></td>
+            <td th:text="${ban.banName}"></td>
             <td>
-                <a th:href="@{'/banToUpdate/'+${year.yearId}}">修改</a>
+                <a th:href="@{'/banToUpdate/'+${ban.banId}}">修改</a>
             </td>
         </tr>
     </table>

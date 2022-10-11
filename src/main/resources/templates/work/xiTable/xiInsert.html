@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/xiInsert}" method="post">
+  <table>
+    <tr>
+      <th colspan="2">添加系别信息</th>
+    </tr>
+    <tr>
+      <td>系别Id</td>
+      <td><input type="text" name="xiId"></td>
+    </tr>
+    <tr>
+      <td>系别名称</td>
+      <td><input type="text" name="xiName"></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" value="点击添加系别信息">
+      </td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>

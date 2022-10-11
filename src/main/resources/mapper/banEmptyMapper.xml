@@ -2,6 +2,27 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cg.boot.mapper.UserMapper">
+<mapper namespace="com.cg.boot.mapper.banEmptyMapper">
+<!--    List<banEmpty> getAllBan();-->
+    <select id="getAllBan" resultType="com.cg.boot.pojo.banEmpty">
+        select b.ban_id,y.year_id,y.year_name,z.zhuan_id,z.xi_id,z.zhuan_name,b.ban_name
+        from ban_table AS b,year_table AS y,zhuan_table AS z
+    </select>
 
+<!--    banEmpty getIdBan(@Param("banId") Integer banId);-->
+    <select id="getIdBan" resultType="com.cg.boot.pojo.banEmpty">
+        select * from ban_table where ban_id=#{banId}
+    </select>
+
+<!--    int banUpdate(banEmpty banEmpty);-->
+    <update id="banUpdate">
+        update ban_table set year_id=#{yearId},zhuan_id=#{zhuanId},ban_name=#{banName}
+        where ban_id=#{banId}
+    </update>
+
+<!--    int banInsert(banEmpty banEmpty);-->
+    <insert id="banInsert">
+        insert into ban_table (year_id,zhuan_id,ban_name) values (#{yearId},#{zhuanId},#{banName})
+        where ban_id=#{banId}
+    </insert>
 </mapper>
