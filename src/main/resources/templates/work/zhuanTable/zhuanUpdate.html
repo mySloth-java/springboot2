@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>年级信息表</title>
+</head>
+<body>
+
+<form th:action="@{/zhuanUpdate}" method="post">
+    <input type="hidden" name="zhuanId" th:value="${idZhuan.zhuanId}">
+    <table>
+        <tr>
+            <th colspan="2">修改专业信息</th>
+        </tr>
+        <tr>
+            <td>系别Id</td>
+            <td><input type="text" name="xiId" th:value="${idZhuan.xiId}"></td>
+        </tr>
+        <tr>
+            <td>专业名称</td>
+            <td><input type="text" name="zhuanName" th:value="${idZhuan.zhuanName}"></td>
+        </tr>
+            <td>
+                <input type="submit" value="修改">
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>

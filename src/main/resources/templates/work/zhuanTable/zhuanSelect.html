@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>专业信息表</title>
+</head>
+<body>
+<div id="app">
+    <table>
+        <tr>
+            <th colspan="5">专业信息表</th>
+        </tr>
+        <tr>
+            <th>专业Id</th>
+            <th>系别Id</th>
+            <th>系别名称</th>
+            <th>专业名称</th>
+            <th>操作选项(<a href="zhuanToInsert">添加专业信息</a>)</th>
+        </tr>
+        <tr th:each="zhuan : ${allZhuan}">
+            <td th:text="${zhuan.zhuanId}"></td>
+            <td th:text="${zhuan.xiId}"></td>
+            <td th:text="${zhuan.xiName}"></td>
+            <td th:text="${zhuan.zhuanName}"></td>
+            <td>
+                <a th:href="@{'/zhuanToUpdate/'+${zhuan.zhuanId}}">修改</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cg.boot.mapper.zhuanEmptyMapper">
+<!--    List<zhuanEmpty> getAllZhuan();-->
+    <select id="getAllZhuan" resultType="com.cg.boot.pojo.zhuanEmpty">
+        select z.zhuan_id,x.xi_id,x.xi_name,z.zhuan_name
+        from zhuan_table AS z LEFT JOIN xi_table AS x
+        ON z.xi_id=x.xi_id
+    </select>
+
+<!--    zhuanEmpty getIdZhuan();-->
+    <select id="getIdZhuan" resultType="com.cg.boot.pojo.zhuanEmpty">
+        select z.zhuan_id,x.xi_id,x.xi_name,z.zhuan_name
+        from zhuan_table AS z LEFT JOIN xi_table AS x
+        ON z.xi_id=x.xi_id
+        where z.zhuan_id=#{zhuanId}
+    </select>
+
+<!--    int zhuanInsert(zhuanEmpty zhuanEmpty);-->
+    <insert id="zhuanInsert">
+        insert into zhuan_table (zhuan_id,xi_id,zhuan_name) values (#{zhuanId},#{xiId},#{zhuanName})
+    </insert>
+
+<!--    int zhuanUpdate(zhuanEmpty zhuanEmpty);-->
+    <update id="zhuanUpdate">
+        update zhuan_table set zhuan_id=#{zhuanId},xi_id=#{xiId},zhuan_name=#{zhuanName}
+        where zhuan_id=#{zhuanId}
+    </update>
+
+</mapper>

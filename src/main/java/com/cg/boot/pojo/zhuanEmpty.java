@@ -2,11 +2,16 @@ package com.cg.boot.pojo;
 
 public class zhuanEmpty {
     /**
-     * 专业表实体类
+     * 专业实体类
      */
     private Integer zhuanId;
     private Integer xiId;
+
+    private String xiName;
     private String zhuanName;
+
+    public zhuanEmpty() {
+    }
 
     public Integer getZhuanId() {
         return zhuanId;
@@ -24,6 +29,14 @@ public class zhuanEmpty {
         this.xiId = xiId;
     }
 
+    public String getXiName() {
+        return xiName;
+    }
+
+    public void setXiName(String xiName) {
+        this.xiName = xiName;
+    }
+
     public String getZhuanName() {
         return zhuanName;
     }
@@ -32,12 +45,10 @@ public class zhuanEmpty {
         this.zhuanName = zhuanName;
     }
 
-    public zhuanEmpty() {
-    }
-
-    public zhuanEmpty(Integer zhuanId, Integer xiId, String zhuanName) {
+    public zhuanEmpty(Integer zhuanId, Integer xiId, String xiName, String zhuanName) {
         this.zhuanId = zhuanId;
         this.xiId = xiId;
+        this.xiName = xiName;
         this.zhuanName = zhuanName;
     }
 }
