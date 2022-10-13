@@ -5,13 +5,21 @@
 <mapper namespace="com.cg.boot.mapper.banEmptyMapper">
 <!--    List<banEmpty> getAllBan();-->
     <select id="getAllBan" resultType="com.cg.boot.pojo.banEmpty">
-        select b.ban_id,y.year_id,y.year_name,z.zhuan_id,z.xi_id,z.zhuan_name,b.ban_name
-        from ban_table AS b,year_table AS y,zhuan_table AS z
+        select b.ban_id,b.year_id,y.year_name,b.zhuan_id,z.zhuan_name,z.xi_id,x.xi_name,b.ban_name
+        from ban_table AS b LEFT JOIN year_table AS y
+        ON b.year_id=y.year_id LEFT JOIN zhuan_table AS z
+        ON b.zhuan_id=z.zhuan_id LEFT JOIN xi_table AS x
+        ON z.xi_id=x.xi_id
     </select>
 
 <!--    banEmpty getIdBan(@Param("banId") Integer banId);-->
     <select id="getIdBan" resultType="com.cg.boot.pojo.banEmpty">
-        select * from ban_table where ban_id=#{banId}
+        select b.ban_id,b.year_id,y.year_name,b.zhuan_id,z.zhuan_name,z.xi_id,x.xi_name,b.ban_name
+        from ban_table AS b LEFT JOIN year_table AS y
+        ON b.year_id=y.year_id LEFT JOIN zhuan_table AS z
+        ON b.zhuan_id=z.zhuan_id LEFT JOIN xi_table AS x
+        ON z.xi_id=x.xi_id
+        where b.ban_id=#{banId}
     </select>
 
 <!--    int banUpdate(banEmpty banEmpty);-->
@@ -22,7 +30,6 @@
 
 <!--    int banInsert(banEmpty banEmpty);-->
     <insert id="banInsert">
-        insert into ban_table (year_id,zhuan_id,ban_name) values (#{yearId},#{zhuanId},#{banName})
-        where ban_id=#{banId}
+        insert into ban_table (ban_id,year_id,zhuan_id,ban_name) values (#{banId},#{yearId},#{zhuanId},#{banName})
     </insert>
 </mapper>

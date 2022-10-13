@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>班级信息表</title>
+</head>
+<body>
+<form th:action="@{/banInsert}" method="post">
+  <table>
+    <tr>
+      <th colspan="4">添加班级信息</th>
+    </tr>
+    <tr>
+      <td>班级Id</td>
+      <td><input type="text" name="banId"></td>
+    </tr>
+    <tr>
+      <td>年级Id</td>
+      <td><input type="text" name="yearId"></td>
+    </tr>
+    <tr>
+      <td>专业Id</td>
+      <td><input type="text" name="zhuanId"></td>
+    </tr>
+    <tr>
+      <td>班级名称</td>
+      <td><input type="text" name="banName"></td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <input type="submit" value="点击添加专业信息">
+      </td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>

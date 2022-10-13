@@ -92,9 +92,17 @@ public class systemOneCon {
     }
 
     //跳转到添加班级表
-
-
+    @GetMapping("/banToInsert")
+    public String banToInsertCon(){
+        return "work/banTable/banInsert";
+    }
     //添加班级表
+    @PostMapping("/banInsert")
+    public String banInsert(banEmpty banEmpty){
+        banEmptyMapper.banInsert(banEmpty);
+        return "redirect:/banSelect";
+    }
+
 
     //跳转到添加系别表
     @GetMapping("/xiToInsert")
@@ -143,8 +151,18 @@ public class systemOneCon {
     }
 
     //跳转修改班级信息
-
+    @GetMapping("/banToUpdate/{banId}")
+    public String banToUpdateCon(@PathVariable("banId") Integer banId,Model model){
+        banEmpty idBan = banEmptyMapper.getIdBan(banId);
+        model.addAttribute("idBan",idBan);
+        return "work/banTable/banUpdate";
+    }
     //修改班级信息
+    @PostMapping("/banUpdate")
+    public String banUpdateCon(banEmpty banEmpty){
+        banEmptyMapper.banUpdate(banEmpty);
+        return "redirect:/banSelect";
+    }
 
     //跳转修改系别表信息
     @GetMapping("/xiToUpdate/{xiId}")

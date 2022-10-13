@@ -2,25 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>年级信息表</title>
+    <title>班级信息表</title>
 </head>
 <body>
 <div id="app">
     <table>
         <tr>
-            <th colspan="5">班级信息表</th>
+            <th colspan="9">班级信息表</th>
         </tr>
         <tr>
             <th>班级Id</th>
             <th>年级Id</th>
+            <th>年级名称</th>
             <th>专业Id</th>
+            <th>专业名称</th>
+            <th>系别Id</th>
+            <th>系别名称</th>
             <th>班级名称</th>
             <th>操作选项(<a href="banToInsert">添加班级信息</a>)</th>
         </tr>
         <tr th:each="ban : ${allBan}">
             <td th:text="${ban.banId}"></td>
             <td th:text="${ban.yearId}"></td>
+            <td th:text="${ban.yearName}"></td>
             <td th:text="${ban.zhuanId}"></td>
+            <td th:text="${ban.zhuanName}"></td>
+            <td th:text="${ban.xiId}"></td>
+            <td th:text="${ban.xiName}"></td>
             <td th:text="${ban.banName}"></td>
             <td>
                 <a th:href="@{'/banToUpdate/'+${ban.banId}}">修改</a>

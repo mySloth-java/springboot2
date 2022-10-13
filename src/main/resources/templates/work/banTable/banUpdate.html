@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>班级信息表</title>
+</head>
+<body>
+
+<form th:action="@{/banUpdate}" method="post">
+    <input type="hidden" name="banId" th:value="${idBan.banId}">
+    <table>
+        <tr>
+            <th colspan="3">修改班级信息</th>
+        </tr>
+        <tr>
+            <td>年级Id</td>
+            <td><input type="text" name="yearId" th:value="${idBan.yearId}"></td>
+        </tr>
+        <tr>
+            <td>专业Id</td>
+            <td><input type="text" name="zhuanId" th:value="${idBan.zhuanId}"></td>
+        </tr>
+        <tr>
+            <td>班级名称</td>
+            <td><input type="text" name="banName" th:value="${idBan.banName}"></td>
+        </tr>
+            <td colspan="3">
+                <input type="submit" value="修改">
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>
